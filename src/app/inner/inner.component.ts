@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-inner",
@@ -8,8 +8,14 @@ import { Component, OnInit, Input } from "@angular/core";
 export class InnerComponent implements OnInit {
   @Input()
   name;
+  @Output()
+  eventNameOut: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
+
+  sendData() {
+    this.eventNameOut.emit(this.name);
+  }
 }

@@ -7,8 +7,12 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HomeComponent implements OnInit {
   names = ["John", "Kate", "Peter"];
-
+  name = "";
   constructor() {}
 
   ngOnInit() {}
+
+  eventFromInner($event) {
+    this.name = $event;
+  }
 }

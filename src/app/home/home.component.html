@@ -1,5 +1,6 @@
 <div class="home">
   <span>Home container</span>
   <p>Names: {{names}}</p>
-  <app-outer [names]="names"></app-outer>
+  <p>Name from outer: {{name}}</p>
+  <app-outer [names]="names" (nameFromInner)="eventFromInner($event)"></app-outer>
 </div>

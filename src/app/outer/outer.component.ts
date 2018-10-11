@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-outer",
@@ -8,8 +8,16 @@ import { Component, OnInit, Input } from "@angular/core";
 export class OuterComponent implements OnInit {
   @Input()
   names;
+  @Output()
+  nameFromInner: EventEmitter<string> = new EventEmitter<string>();
+  name: string = "";
 
   constructor() {}
 
   ngOnInit() {}
+
+  onEventName($event) {
+    this.name = $event;
+    this.nameFromInner.emit(this.name);
+  }
 }
